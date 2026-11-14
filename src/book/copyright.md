@@ -1,7 +1,7 @@
 
 ## Copyright et license
 
-Memo-Linux Copyright (c) 2015-2021 Franck Blanchard
+Memo-Linux Copyright (c) 2015-2026 Franck Blanchard
 
 All rights reserved.
 

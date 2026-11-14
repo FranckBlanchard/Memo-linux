@@ -7,15 +7,21 @@ Les commandes suivantes doivent être invoquées avec les droits d'administratio
 
 Il est impératif de consulter le manuel pour les options.
 
-**useradd** *[option]* identifiant
+```
+useradd [option] identifiant
+```
 
 ### Supprimer un compte utilisateur
 
-**userdel** utilisateur
+```
+userdel utilisateur
+```
 
 ### Supprimer un compte utilisateur et son répertoire personel
 
-**userdel** *-r* utilisateur
+```
+userdel -r utilisateur
+```
 
 #### Note
 
@@ -26,4 +32,6 @@ l'utilisateur manuellement.
 
 Les options varient en fonction des informations à modifier, consulter le manuel avant son utilisation.
 
-**usermod** *[option]* identifiant
+```
+usermod [option] identifiant
+```

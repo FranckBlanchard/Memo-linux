@@ -5,103 +5,114 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <h1>Memo Linux</h1>
-        <p>Date de compilation du document: 2026-11-14 01:36:14.</p>
+        <p>Date de compilation du document: 2026-11-14 00:14:38.</p>
         <p>La dernière version du document peut être trouvée a l'adresse suivante : <a href="https://github.com/FranckBlanchard/Memo-linux" target="_blank">https://github.com/FranckBlanchard/Memo-linux</a></p>            
         <p>Pour obtenir plus d'information sur une commande, se référer aux pages du manuel de celle-ci, ou à l'aide en ligne.</p>
 
 <h2>Pour obtenir de d'information sur une commande</h2>
 
-<p><strong>man</strong> commande</p>
+<p><code>man commande</code></p>
 
 <p>Pour la majorité des commandes il est possible d'afficher de l'aide directement depuis la commande en faisant:</p>
 
-<p><strong>commande</strong> <em>--help</em></p>
+<p><code>commande --help</code></p>
 
 <h2>Opération sur les fichiers.</h2>
 
 <h3>Créer un fichier.</h3>
 
-<p><strong>touch</strong> fichier</p>
+<p><code>touch fichier</code></p>
 
 <h3>Supprimer un fichier.</h3>
 
-<p><strong>rm</strong> fichier</p>
+<p><code>rm fichier</code></p>
 
 <h3>Copier un fichier.</h3>
 
-<p><strong>cp</strong> fichier1 fichier2</p>
+<p><code>cp fichier1 fichier2</code></p>
 
 <h3>Afficher un fichier.</h3>
 
-<p><strong>cat</strong> fichier</p>
+<p><code>cat fichier</code></p>
 
 <h3>Afficher un fichier avec un pager</h3>
 
-<p><strong>less</strong> fichier</p>
+<p><code>less fichier</code></p>
 
-<p><strong>more</strong> fichier</p>
+<p><code>more fichier</code></p>
 
 <h3>Afficher les <em>n</em> premières lignes d'un fichier</h3>
 
-<p><strong>head</strong> <em>-n</em> fichier</p>
+<p><code>head -n fichier</code></p>
 
 <h3>Afficher les <em>n</em> dernières lignes d'un fichier</h3>
 
-<p><strong>tail</strong> <em>-n</em> fichier</p>
+<p><code>tail -n fichier</code></p>
 
 <h3>Renommer ou déplacer un fichier</h3>
 
-<p><strong>mv</strong> source destination</p>
+<p><code>mv source destination</code></p>
+
+<h3>Créer un lien symbolique</h3>
+
+<p>Créer un lien symbolique vers un fichier ou un répertoire.</p>
+
+<p><code>ln -s cible nom_du_lien</code></p>
+
+<p><code>ln -s /opt/application ~/application</code></p>
+
+<p>Le lien ~/application pointera vers le répertoire /opt/application.</p>
 
 <h2>Opération sur les répertoires</h2>
 
 <h3>Créer un répertoire</h3>
 
-<p><strong>mkdir</strong> répertoire</p>
+<p><code>mkdir répertoire</code></p>
 
 <h3>Effacer un répertoire vide</h3>
 
-<p><strong>rmdir</strong> répertoire</p>
+<p><code>rmdir répertoire</code></p>
 
 <h3>Effacer un répertoire de façon récurçive</h3>
 
-<p><strong>rm</strong> <em>-r</em> répertoire</p>
+<p><code>rm -r répertoire</code></p>
 
 <h3>Afficher les fichiers du répertoire courant</h3>
 
-<p><strong>ls</strong></p>
+<p><code>ls</code></p>
 
 <h3>Afficher les fichiers du répertoire courant au format long</h3>
 
-<p><strong>ls</strong> <em>-l</em></p>
+<p><code>ls -l</code></p>
 
 <h3>Afficher les fichiers du répertoire courant au format long ainsi que les fichiers cachés</h3>
 
-<p><strong>ls</strong> <em>-la</em></p>
+<p><code>ls -la</code></p>
 
 <h3>Afficher le répertoire courant</h3>
 
-<p><strong>pwd</strong></p>
+<p><code>pwd</code></p>
 
 <h3>Changer de répertoire</h3>
 
-<p><strong>cd</strong> repertoire</p>
+<p><code>cd repertoire</code></p>
 
 <h3>Se positionner dans le répertoire parent</h3>
 
-<p><strong>cd</strong> ..</p>
+<p><code>cd ..</code></p>
 
 <h3>Se positionner à la racine du répertoire de l'utilisateur courant</h3>
 
-<p><strong>cd</strong> ~</p>
+<p><code>cd ~</code></p>
 
 <h3>Renommer ou déplacer un répertoire</h3>
 
-<p><strong>mv</strong> source destination</p>
+<p><code>mv source destination</code></p>
 
 <h2>Opération sur les archives.</h2>
 
@@ -109,15 +120,15 @@
 
 <p>Créer l'archive compréssé <em>archive.tar.gz</em> en utilisant le programme gzip, de tous les fichiers contenus dans le répertoire <em>documents</em>.</p>
 
-<p><strong>tar</strong> <em>-zcvf</em>  archive.tar.gz  /documents</p>
+<p><code>tar -zcvf  archive.tar.gz  /documents</code></p>
 
 <h3>Afficher le contenu d'une archive créé avec <em>tar</em>.</h3>
 
-<p><strong>tar</strong> <em>-ztvf</em> archive.tar.gz</p>
+<p><code>tar -ztvf archive.tar.gz</code></p>
 
 <h3>Extraire les fichiers d'une archive créé avec <em>tar</em>.</h3>
 
-<p><strong>tar</strong> <em>-xzvf</em> archive.tar.gz</p>
+<p><code>tar -xzvf archive.tar.gz</code></p>
 
 <h2>Opération sur les Utilisateurs</h2>
 
@@ -127,15 +138,15 @@
 
 <p>Il est impératif de consulter le manuel pour les options.</p>
 
-<p><strong>useradd</strong> <em>[option]</em> identifiant</p>
+<p><code>useradd [option] identifiant</code></p>
 
 <h3>Supprimer un compte utilisateur</h3>
 
-<p><strong>userdel</strong> utilisateur</p>
+<p><code>userdel utilisateur</code></p>
 
 <h3>Supprimer un compte utilisateur et son répertoire personel</h3>
 
-<p><strong>userdel</strong> <em>-r</em> utilisateur</p>
+<p><code>userdel -r utilisateur</code></p>
 
 <h4>Note</h4>
 
@@ -146,7 +157,7 @@ l'utilisateur manuellement.</p>
 
 <p>Les options varient en fonction des informations à modifier, consulter le manuel avant son utilisation.</p>
 
-<p><strong>usermod</strong> <em>[option]</em> identifiant</p>
+<p><code>usermod [option] identifiant</code></p>
 
 <h2>Opération sur le système</h2>
 
@@ -154,41 +165,41 @@ l'utilisateur manuellement.</p>
 
 <p>Mettre à jour la liste des paquets disponibles</p>
 
-<p><strong>apt-get</strong> <em>update</em></p>
+<p><code>apt-get update</code></p>
 
 <p>Mettre à jour les paquets déjà installé</p>
 
-<p><strong>apt-get</strong> <em>upgrade</em></p>
+<p><code>apt-get upgrade</code></p>
 
 <p>Installation d'un paquet</p>
 
-<p><strong>apt-get</strong> <em>install</em> paquet</p>
+<p><code>apt-get install paquet</code></p>
 
-<p><strong>dpkg</strong> <em>-i</em> paquet</p>
+<p><code>dpkg -i paquet</code></p>
 
 <p>Déinstallation d'un paquet</p>
 
-<p><strong>apt-get</strong> <em>remove</em> paquet</p>
+<p><code>apt-get remove paquet</code></p>
 
-<p><strong>dpkg</strong> <em>-r</em> paquet</p>
+<p><code>dpkg -r paquet</code></p>
 
 <p>Pour supprimer les fichiers de configuration.</p>
 
-<p><strong>apt-get</strong> <em>--purge remove</em> paquet</p>
+<p><code>apt-get --purge remove paquet</code></p>
 
-<p><strong>dpkg</strong> <em>-P</em> paquet</p>
+<p><code>dpkg -P paquet</code></p>
 
 <p>Afficher la liste des paquets installés</p>
 
-<p><strong>dpkg</strong> --get-selections | less</p>
+<p><code>dpkg --get-selections | less</code></p>
 
 <p>Recherche d'une chaînes de caractères «chaine» dans les paquets connus.</p>
 
-<p><strong>apt-cache</strong> search chaîne</p>
+<p><code>apt-cache search chaîne</code></p>
 
 <p>Recherche d'une chaînes de caractères «chaîne» dans le nom d'un paquet.</p>
 
-<p><strong>apt-cache</strong> showpkg chaîne</p>
+<p><code>apt-cache showpkg chaîne</code></p>
 
 <h2>Opération sur le réseau.</h2>
 
@@ -198,7 +209,7 @@ l'utilisateur manuellement.</p>
 
 <p>Afficher les cartes réseaux disponibles.</p>
 
-<p><strong>ifconfig</strong></p>
+<p><code>ifconfig</code></p>
 
 <h3>Les routes.</h3>
 
@@ -206,7 +217,7 @@ l'utilisateur manuellement.</p>
 
 <p>Affiche la table de routage du noyau.</p>
 
-<p><strong>route</strong></p>
+<p><code>route</code></p>
 
 <h3>Tester le réseau.</h3>
 
@@ -214,38 +225,41 @@ l'utilisateur manuellement.</p>
 
 <p><strong>Note :</strong> attention le client peut être configurer pour ne pas répondre à un ping</p>
 
-<p><strong>ping</strong> <em>-c 10</em>  google.ca</p>
+<p><code>ping -c 10 google.ca</code></p>
 
 <p>Affiche la route d'un paquet pour arriver a une adresse.</p>
 
-<p><strong>traceroute</strong>  google.com</p>
+<p><code>traceroute google.com</code></p>
 
 <p>Affiche la correspondance entre <em>adresse ip</em> et <em>mac adresse</em></p>
 
-<p><strong>arp</strong> <em>-an</em></p>
+<p><code>arp -an</code></p>
 
 <p>Affiche les connexions ainsi que les processus correspondants. La commande <strong>netstat</strong> possède beaucoup d'options, voir la documentation en ligne.</p>
 
-<p><strong>netstat</strong> <em>-nap</em></p>
+<p><code>netstat -nap</code></p>
 
 <h3>Connexion à distance.</h3>
 
-<p>SSH (Secure shell) est un protocole de communication sécurisé basé sur un système de clés. C'est aussi un programme, qui va permetre d'ouvrir un terminal sur une machine distante.
+<p><strong>SSH</strong> (Secure shell) est un protocole de communication sécurisé basé sur un système de clés. C'est aussi un programme, qui va permetre d'ouvrir un terminal sur une machine distante.
 Son installion vient avec d'autres programmes pour notamment générer les clés, les copier etc...</p>
 
 <p>Se connecter sur la machine à l'adresse <strong>domaine.com</strong></p>
 
-<p><strong>ssh</strong> <em>login@domaine.com</em> ou <strong>ssh</strong> <em>login@172.217.13.110</em></p>
+<p><code>ssh login@domaine.com</code>
+ou 
+<code>ssh login@172.217.13.110</code></p>
 
 <p>Génère une paire de clé, privé et public.
 Le programme vous demandera une passphrase pour sécuriser les clés.
 Il vous demandera aussi le nom des clés a générer. Il faut indiquer le chemin complet ainsi que le nom.
 Habituellement on les sauvegarde dans <em>/home/user/.ssh/nom_de_la_cle</em> .</p>
 
-<p><strong>ssh-keygen</strong> <em>-t rsa</em> <em>-b 4096</em></p>
+<p><code>ssh-keygen -t rsa -b 4096</code></p>
 
-<p><strong>Backup</strong>
-rsync -avz -e "ssh -p 22" utilisateur@serveur2:/chemin/source/ /chemin/destination/</p>
+<p><strong>Backup</strong> avec <strong>ssh</strong></p>
+
+<p><code>rsync -avz -e "ssh -p 22" utilisateur@serveur2:/chemin/source/ /chemin/destination/</code></p>
 
 <h2>Copyright</h2>
 

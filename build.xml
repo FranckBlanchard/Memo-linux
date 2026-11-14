@@ -3,6 +3,7 @@
     <property file="build.properties"/>
     <target name="all">
         <antcall target="concatMardown"></antcall>
+		<antcall target="copyCss"></antcall>
         <antcall target="makeHtml"></antcall>
         <antcall target="makePdf"></antcall>
         <antcall target="readme"></antcall>
@@ -23,6 +24,14 @@
             </filelist>
         </concat>
     </target>
+	<target name="copyCss" description="Copie les feuilles de style">
+		<mkdir dir="build/html/css"/>
+		<copy todir="build/html/css">
+			<fileset dir="${source}/css">
+				<include name="*.css"/>
+			</fileset>
+		</copy>
+	</target>
     <target name="makeHtml" description="Création du fichier html build/html/memo-linux.md">
         <echo message="Création du fichier Memo-linux au format html"/>
         <exec executable="php">

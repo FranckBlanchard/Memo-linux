@@ -3,8 +3,12 @@ Pour obtenir plus d'information sur une commande, se référer aux pages du manu
 
 ## Pour obtenir de d'information sur une commande
 
-**man** commande
+```
+man commande
+```
 
 Pour la majorité des commandes il est possible d'afficher de l'aide directement depuis la commande en faisant:
 
-**commande** *--help*
+```
+commande --help
+```

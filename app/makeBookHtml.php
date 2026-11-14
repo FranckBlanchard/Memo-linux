@@ -27,7 +27,7 @@ if (file_exists($mdFile)) {
 }
 // Date de création du document
 $fuseauHoraire = new \DateTimeZone("America/Montreal");
-$date = new \DateTime(date("Y-m-d H:i:s"), $fuseauHoraire);
+$date = new \DateTime('now', $fuseauHoraire);
 // Template Twig a utiliser
 $twigTemplate = "memo-linux.html.twig";
 /**

@@ -1,0 +1,221 @@
+/* ==================================================
+   Memo Linux - Style personnalisé
+   ================================================== */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* ==================================================
+   Titres
+   ================================================== */
+
+h1 {
+    font-size: 42px;
+    font-weight: 300;
+    color: #2c3e50;
+    border-left: 8px solid #27ae60;
+    padding-left: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #27ae60;
+    padding-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+h4 {
+    color: #666;
+    margin-top: 20px;
+}
+
+/* ==================================================
+   Paragraphes
+   ================================================== */
+
+p {
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+/* ==================================================
+   Code inline
+   ================================================== */
+
+code {
+    color: #c7254e;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-family: Consolas, Monaco, monospace;
+}
+
+/* ==================================================
+   Blocs de code
+   ================================================== */
+
+pre {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-left: 4px solid #27ae60;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+    pre code {
+        border: none;
+        background: transparent;
+        padding: 0;
+        color: #333;
+    }
+
+/* ==================================================
+   Listes
+   ================================================== */
+
+ul,
+ol {
+    margin-bottom: 15px;
+}
+
+li {
+    margin-bottom: 4px;
+}
+
+/* ==================================================
+   Liens
+   ================================================== */
+
+a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+/* ==================================================
+   Tableaux
+   ================================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th {
+    background-color: #27ae60;
+    color: white;
+    padding: 8px;
+    text-align: left;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* ==================================================
+   Impression / PDF
+   ================================================== */
+
+@media print {
+
+    body {
+        margin: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        page-break-after: avoid;
+    }
+
+    code {
+        color: #c7254e !important;
+        background-color: #f7f7f9 !important;
+        border: 1px solid #e1e1e8 !important;
+    }
+
+    pre {
+        background-color: #f8f8f8 !important;
+        border-left: 4px solid #27ae60 !important;
+    }
+
+    a {
+        color: #2980b9 !important;
+    }
+}
+/* ==================================================
+   Impression / PDF
+   ==================================================
+
+   Bootstrap applique des règles spécifiques pour
+   l'impression qui modifient l'apparence des blocs
+   de code et ajoutent automatiquement l'URL des liens.
+
+   Les règles suivantes rétablissent le rendu souhaité
+   pour la génération PDF avec wkhtmltopdf.
+   ================================================== */
+
+@media print {
+
+    body {
+        margin: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        page-break-after: avoid;
+    }
+
+    /* Conserver l'apparence des commandes Linux */
+    code {
+        color: #c7254e !important;
+        background-color: #f7f7f9 !important;
+        border: 1px solid #e1e1e8 !important;
+    }
+
+    /* Conserver le style des blocs de code */
+    pre {
+        background-color: #f8f8f8 !important;
+        border-left: 4px solid #27ae60 !important;
+    }
+
+    /* Conserver la couleur des liens */
+    a {
+        color: #2980b9 !important;
+    }
+
+        /* Désactiver l'affichage automatique de l'URL
+       ajouté par Bootstrap lors de l'impression */
+        a[href]:after {
+            content: none !important;
+        }
+}

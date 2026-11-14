@@ -2,41 +2,66 @@
 
 ### Créer un répertoire
 
-**mkdir** répertoire
+```
+mkdir répertoire
+```
 
 ### Effacer un répertoire vide
-**rmdir** répertoire
+
+```
+rmdir répertoire
+```
 
 ### Effacer un répertoire de façon récurçive
 
-**rm** *-r* répertoire
+```
+rm -r répertoire
+```
 
 ### Afficher les fichiers du répertoire courant
 
-**ls**
+```
+ls
+```
 
 ### Afficher les fichiers du répertoire courant au format long
 
-**ls** *-l*
+```
+ls -l
+```
 
 ### Afficher les fichiers du répertoire courant au format long ainsi que les fichiers cachés
 
-**ls** *-la*
+```
+ls -la
+```
 
 ### Afficher le répertoire courant
-**pwd**
+
+```
+pwd
+```
 
 ### Changer de répertoire
 
-**cd** repertoire
+```
+cd repertoire
+```
 
 ### Se positionner dans le répertoire parent
 
-**cd** ..
+```
+cd ..
+```
+
 ### Se positionner à la racine du répertoire de l'utilisateur courant
 
-**cd** ~
+```
+cd ~
+```
 
 ### Renommer ou déplacer un répertoire
 
-**mv** source destination
+```
+mv source destination
+```

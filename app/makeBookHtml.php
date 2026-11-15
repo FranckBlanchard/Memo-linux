@@ -5,6 +5,8 @@
  *
  */
 use \Michelf\Markdown;
+use \Twig\Environment;
+use \Twig\Loader\FilesystemLoader;
 
 define('EOL', "\n");
 // Répertoire des templates
@@ -48,8 +50,8 @@ $htmlBook = Markdown::defaultTransform($mdContent);
 /**
  * Initialisation du moteur de template Twig
  */
-$loader = new Twig_Loader_Filesystem($templateDir);
-$twig = new Twig_Environment($loader, array(
+$loader = new FilesystemLoader($templateDir);
+$twig = new Environment($loader, array(
     "autoescape" => false
         ));
 echo EOL . 'Génération de la page html' . EOL;

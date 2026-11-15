@@ -24,6 +24,9 @@ $htmlFile = __DIR__ . "/../build/html/memo-linux.html";
 $mdContent = '';
 if (file_exists($mdFile)) {
     $mdContent = file_get_contents($mdFile);
+    if ($mdContent === false) {
+        throw new RuntimeException("Impossible de lire le fichier $mdFile");
+    }
 } else {
     $mdContent = "## Le fichier $mdFile ne semble pas exister !";
 }

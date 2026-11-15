@@ -154,6 +154,10 @@ td {
     h4 {
         page-break-after: avoid;
     }
+    
+    h2 + h3p {
+        page-break-before: avoid;
+    }
 
     code {
         color: #c7254e !important;
@@ -169,52 +173,10 @@ td {
     a {
         color: #2980b9 !important;
     }
-}
-/* ==================================================
-   Impression / PDF
-   ==================================================
 
-   Bootstrap applique des règles spécifiques pour
-   l'impression qui modifient l'apparence des blocs
-   de code et ajoutent automatiquement l'URL des liens.
+   /* Désactiver l'affichage automatique de l'URL
+      ajouté par Bootstrap lors de l'impression */
 
-   Les règles suivantes rétablissent le rendu souhaité
-   pour la génération PDF avec wkhtmltopdf.
-   ================================================== */
-
-@media print {
-
-    body {
-        margin: 0;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-        page-break-after: avoid;
-    }
-
-    /* Conserver l'apparence des commandes Linux */
-    code {
-        color: #c7254e !important;
-        background-color: #f7f7f9 !important;
-        border: 1px solid #e1e1e8 !important;
-    }
-
-    /* Conserver le style des blocs de code */
-    pre {
-        background-color: #f8f8f8 !important;
-        border-left: 4px solid #27ae60 !important;
-    }
-
-    /* Conserver la couleur des liens */
-    a {
-        color: #2980b9 !important;
-    }
-
-        /* Désactiver l'affichage automatique de l'URL
-       ajouté par Bootstrap lors de l'impression */
         a[href]:after {
             content: none !important;
         }

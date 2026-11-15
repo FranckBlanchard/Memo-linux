@@ -2,14 +2,14 @@
 <project name="memo-linux" default="all">
     <property file="build.properties"/>
     <target name="all">
-        <antcall target="concatMardown"></antcall>
+        <antcall target="concatMarkdown"></antcall>
 		<antcall target="copyCss"></antcall>
         <antcall target="makeHtml"></antcall>
         <antcall target="makePdf"></antcall>
         <antcall target="readme"></antcall>
         <antcall target="status"></antcall>
     </target>
-    <target name="concatMardown" description="Création du fichier Memo-linux.md">
+    <target name="concatMarkdown" description="Création du fichier Memo-linux.md">
         <echo message="Création du fichier ${bookname}.md"/>
         <concat destfile="${source}/concat/${bookname}.md">
             <filelist dir="${source}/book">

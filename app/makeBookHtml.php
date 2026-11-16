@@ -21,14 +21,12 @@ $htmlFile = __DIR__ . "/../build/html/memo-linux.html";
 /**
  * @var string $mdContent Contenu du fichier concatené.
  */
-$mdContent = '';
-if (file_exists($mdFile)) {
-    $mdContent = file_get_contents($mdFile);
-    if ($mdContent === false) {
-        throw new RuntimeException("Impossible de lire le fichier $mdFile");
-    }
-} else {
-    $mdContent = "## Le fichier $mdFile ne semble pas exister !";
+if (!is_file($mdFile)) {
+    throw new RuntimeException("Fichier Markdown introuvable : $mdFile");
+}
+$mdContent = file_get_contents($mdFile);
+if ($mdContent === false) {
+    throw new RuntimeException("Impossible de lire le fichier $mdFile");
 }
 // Date de création du document
 $fuseauHoraire = new \DateTimeZone("America/Montreal");

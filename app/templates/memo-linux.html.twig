@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
-        <title>{{htmlTitleBar|title}}</title>
+        <title>{{ htmlTitleBar|title }}</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Latest compiled and minified CSS -->
@@ -9,9 +9,14 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <h1>{{htmlTitle|title}}</h1>
-        <p>Date de compilation du document: {{dateCompilation}}.</p>
-        <p>La dernière version du document peut être trouvée a l'adresse suivante : <a href="https://github.com/FranckBlanchard/Memo-linux" target="_blank">https://github.com/FranckBlanchard/Memo-linux</a></p>            
-        {{htmlFromMdFile}}
+        <main>
+            <h1>{{ htmlTitle|title }}</h1>
+            <p>Date de compilation du document : {{ dateCompilation }}.</p>
+            <p>
+                La dernière version du document peut être trouvée à l'adresse suivante :
+                <a href="https://github.com/FranckBlanchard/Memo-linux" target="_blank" rel="noopener noreferrer">https://github.com/FranckBlanchard/Memo-linux</a>
+            </p>
+            {{ htmlFromMdFile }}
+        </main>
     </body>
 </html>

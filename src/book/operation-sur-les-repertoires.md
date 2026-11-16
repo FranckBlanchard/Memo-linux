@@ -1,4 +1,4 @@
-## Opération sur les répertoires
+## Opérations sur les répertoires
 
 ### Créer un répertoire
 
@@ -6,13 +6,13 @@
 mkdir répertoire
 ```
 
-### Effacer un répertoire vide
+### Supprimer un répertoire vide
 
 ```
 rmdir répertoire
 ```
 
-### Effacer un répertoire de façon récurçive
+### Supprimer un répertoire de façon récursive
 
 ```
 rm -r répertoire
@@ -30,7 +30,7 @@ ls
 ls -l
 ```
 
-### Afficher les fichiers du répertoire courant au format long ainsi que les fichiers cachés
+### Afficher les fichiers du répertoire courant au format long, y compris les fichiers cachés
 
 ```
 ls -la
@@ -45,16 +45,16 @@ pwd
 ### Changer de répertoire
 
 ```
-cd repertoire
+cd répertoire
 ```
 
-### Se positionner dans le répertoire parent
+### Accéder au répertoire parent
 
 ```
 cd ..
 ```
 
-### Se positionner à la racine du répertoire de l'utilisateur courant
+### Accéder au répertoire personnel de l'utilisateur courant
 
 ```
 cd ~

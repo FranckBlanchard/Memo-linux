@@ -1,13 +1,17 @@
 
-Pour obtenir plus d'information sur une commande, se référer aux pages du manuel de celle-ci, ou à l'aide en ligne.
+Pour obtenir des informations sur une commande, consultez sa page de manuel ou son aide intégrée.
 
-## Pour obtenir de d'information sur une commande
+## Consulter le manuel d'une commande
 
 ```
 man commande
 ```
 
-Pour la majorité des commandes il est possible d'afficher de l'aide directement depuis la commande en faisant:
+Remplacez `commande` par le nom de la commande recherchée.
+
+## Afficher l'aide d'une commande
+
+De nombreuses commandes affichent un résumé de leur utilisation avec l'option `--help` :
 
 ```
 commande --help

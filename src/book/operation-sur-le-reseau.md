@@ -1,79 +1,91 @@
 
-## Opération sur le réseau.
+## Opérations sur le réseau
 
-### Carte réseau
+### Interfaces réseau
 
-**ifconfig** permet de gérer les cartes réseaux.
+La commande `ip` permet de consulter et de configurer les interfaces réseau.
 
-Afficher les cartes réseaux disponibles.
-
-```
-ifconfig
-```
-
-### Les routes.
-
-La commande **route** permet de gérer les routes du noyau.
-
-Affiche la table de routage du noyau.
+Afficher les interfaces réseau et leurs adresses IP :
 
 ```
-route
+ip addr
 ```
 
-### Tester le réseau.
+### Routes
 
-Vérifie 10 fois si un client réseau est disponible.
+La commande `ip route` permet de consulter et de gérer les routes du noyau.
 
-**Note :** attention le client peut être configurer pour ne pas répondre à un ping
+Afficher la table de routage :
+
+```
+ip route
+```
+
+### Tester la connectivité réseau
+
+Envoyer 10 requêtes ping à `google.ca` pour tester la connectivité :
+
+**Remarque :** un hôte peut être configuré pour ne pas répondre aux requêtes ping,
+par exemple si un pare-feu les bloque.
 
 ```
 ping -c 10 google.ca
 ```
 
-Affiche la route d'un paquet pour arriver a une adresse.
+Afficher le chemin suivi par les paquets jusqu'à l'hôte de destination :
 
 ```
 traceroute google.com
 ```
 
-Affiche la correspondance entre *adresse ip* et *mac adresse*
+Afficher les adresses IP et MAC des voisins connus :
 
 ```
-arp -an
+ip neigh
 ```
 
-Affiche les connexions ainsi que les processus correspondants. La commande **netstat** possède beaucoup d'options, voir la documentation en ligne.
+Afficher les connexions TCP et UDP ainsi que les processus associés. Les
+privilèges d'administration sont nécessaires pour voir tous les processus :
 
 ```
-netstat -nap
+sudo ss -tunap
 ```
 
-### Connexion à distance.
+`ifconfig`, `route`, `arp` et `netstat` sont d'anciennes commandes du paquet
+`net-tools`. Sur les systèmes récents, préférer les commandes `ip` et `ss`
+présentées ci-dessus.
 
-**SSH** (Secure shell) est un protocole de communication sécurisé basé sur un système de clés. C'est aussi un programme, qui va permetre d'ouvrir un terminal sur une machine distante.
-Son installion vient avec d'autres programmes pour notamment générer les clés, les copier etc...
+### Connexion à distance
 
-Se connecter sur la machine à l'adresse **domaine.com**
+**SSH** (Secure Shell) est un protocole sécurisé et le nom du programme client
+qui permet d'ouvrir une session sur une machine distante. Les outils associés
+permettent notamment de générer et de copier des clés.
+
+Se connecter à une machine par son nom de domaine :
 
 ```
 ssh login@domaine.com
 ```
-ou 
+
+Ou par son adresse IP :
+
 ```
 ssh login@172.217.13.110
 ```
 
-Génère une paire de clé, privé et public.
-Le programme vous demandera une passphrase pour sécuriser les clés.
-Il vous demandera aussi le nom des clés a générer. Il faut indiquer le chemin complet ainsi que le nom.
-Habituellement on les sauvegarde dans */home/user/.ssh/nom_de_la_cle* .
+Générer une paire de clés SSH (une clé publique et une clé privée) :
 
 ```
 ssh-keygen -t rsa -b 4096
 ```
 
-**Backup** avec **ssh**
+Le programme demande une phrase secrète (passphrase) pour protéger la clé
+privée, ainsi que l'emplacement où enregistrer les clés. Habituellement, elles
+sont stockées dans `~/.ssh/`.
+
+Effectuer une sauvegarde avec `rsync` via SSH. Exécutée depuis la machine de
+destination, cette commande copie le contenu du répertoire distant vers le
+répertoire local :
 
 ```
 rsync -avz -e "ssh -p 22" utilisateur@serveur2:/chemin/source/ /chemin/destination/

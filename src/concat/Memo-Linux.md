@@ -1,39 +1,43 @@
 
-Pour obtenir plus d'information sur une commande, se référer aux pages du manuel de celle-ci, ou à l'aide en ligne.
+Pour obtenir des informations sur une commande, consultez sa page de manuel ou son aide intégrée.
 
-## Pour obtenir de d'information sur une commande
+## Consulter le manuel d'une commande
 
 ```
 man commande
 ```
 
-Pour la majorité des commandes il est possible d'afficher de l'aide directement depuis la commande en faisant:
+Remplacez `commande` par le nom de la commande recherchée.
+
+## Afficher l'aide d'une commande
+
+De nombreuses commandes affichent un résumé de leur utilisation avec l'option `--help` :
 
 ```
 commande --help
 ```
 
-## Opération sur les fichiers.
+## Opérations sur les fichiers
 
-### Créer un fichier.
+### Créer un fichier
 
 ```
 touch fichier
 ```
 
-### Supprimer un fichier.
+### Supprimer un fichier
 
 ```
 rm fichier
 ```
 
-### Copier un fichier.
+### Copier un fichier
 
 ```
 cp fichier1 fichier2
 ```
 
-### Afficher un fichier.
+### Afficher un fichier
 
 ```
 cat fichier
@@ -49,16 +53,16 @@ less fichier
 more fichier
 ```
 
-### Afficher les *n* premières lignes d'un fichier
+### Afficher les 10 premières lignes d'un fichier
 
 ```
-head -n fichier
+head -n 10 fichier
 ```
 
-### Afficher les *n* dernières lignes d'un fichier
+### Afficher les 10 dernières lignes d'un fichier
 
 ```
-tail -n fichier
+tail -n 10 fichier
 ```
 
 ### Renommer ou déplacer un fichier
@@ -69,7 +73,7 @@ mv source destination
 
 ### Créer un lien symbolique
 
-Créer un lien symbolique vers un fichier ou un répertoire.
+Créer un lien symbolique vers un fichier ou un répertoire :
 
 ```
 ln -s cible nom_du_lien
@@ -79,8 +83,8 @@ ln -s cible nom_du_lien
 ln -s /opt/application ~/application
 ```
 
-Le lien ~/application pointera vers le répertoire /opt/application.
-## Opération sur les répertoires
+Le lien `~/application` pointera vers le répertoire `/opt/application`.
+## Opérations sur les répertoires
 
 ### Créer un répertoire
 
@@ -88,13 +92,13 @@ Le lien ~/application pointera vers le répertoire /opt/application.
 mkdir répertoire
 ```
 
-### Effacer un répertoire vide
+### Supprimer un répertoire vide
 
 ```
 rmdir répertoire
 ```
 
-### Effacer un répertoire de façon récurçive
+### Supprimer un répertoire de façon récursive
 
 ```
 rm -r répertoire
@@ -112,7 +116,7 @@ ls
 ls -l
 ```
 
-### Afficher les fichiers du répertoire courant au format long ainsi que les fichiers cachés
+### Afficher les fichiers du répertoire courant au format long, y compris les fichiers cachés
 
 ```
 ls -la
@@ -127,16 +131,16 @@ pwd
 ### Changer de répertoire
 
 ```
-cd repertoire
+cd répertoire
 ```
 
-### Se positionner dans le répertoire parent
+### Accéder au répertoire parent
 
 ```
 cd ..
 ```
 
-### Se positionner à la racine du répertoire de l'utilisateur courant
+### Accéder au répertoire personnel de l'utilisateur courant
 
 ```
 cd ~
@@ -147,35 +151,35 @@ cd ~
 ```
 mv source destination
 ```
-## Opération sur les archives.
+## Opérations sur les archives
 
 ### Créer une archive avec tar
 
-Créer l'archive compréssé *archive.tar.gz* en utilisant le programme gzip, de tous les fichiers contenus dans le répertoire *documents*.
+Depuis le répertoire parent de `documents`, créez une archive compressée au format gzip contenant ce répertoire :
 
 ```
-tar -zcvf  archive.tar.gz  /documents
+tar -czvf archive.tar.gz documents/
 ```
 
-### Afficher le contenu d'une archive créé avec *tar*.
+### Afficher le contenu d'une archive créée avec tar
 
 ```
 tar -ztvf archive.tar.gz
 ```
 
-### Extraire les fichiers d'une archive créé avec *tar*.
+### Extraire les fichiers d'une archive créée avec tar
 
 ```
 tar -xzvf archive.tar.gz
 ```
 
-## Opération sur les Utilisateurs
+## Opérations sur les utilisateurs
 
-Les commandes suivantes doivent être invoquées avec les droits d'administration.
+Les commandes de cette section nécessitent des privilèges d'administration.
 
 ### Ajouter un compte utilisateur
 
-Il est impératif de consulter le manuel pour les options.
+Consultez le manuel (`man useradd`) pour connaître les options disponibles.
 
 ```
 useradd [option] identifiant
@@ -187,42 +191,46 @@ useradd [option] identifiant
 userdel utilisateur
 ```
 
-### Supprimer un compte utilisateur et son répertoire personel
+### Supprimer un compte utilisateur et son répertoire personnel
 
 ```
 userdel -r utilisateur
 ```
 
-#### Note
+Attention : l'option `-r` supprime aussi le répertoire personnel et la boîte
+aux lettres de l'utilisateur. Sauvegardez les données à conserver avant de
+l'utiliser.
 
-Le fichier */etc/group* ne sera pas modifié, il faut supprimer les entrées concernant
-l'utilisateur manuellement.
+`userdel` met à jour les fichiers de comptes système concernés, notamment
+`/etc/passwd`, `/etc/shadow` et `/etc/group`. Il n'est normalement pas nécessaire
+de supprimer ces entrées manuellement.
 
 ### Modifier un compte utilisateur
 
-Les options varient en fonction des informations à modifier, consulter le manuel avant son utilisation.
+Les options dépendent des informations à modifier. Consultez le manuel
+(`man usermod`) avant d'utiliser cette commande.
 
 ```
 usermod [option] identifiant
 ```
 
-## Opération sur le système
+## Opérations sur le système
 
-### Système **Debian** et dérivé
+### Debian et les distributions dérivées
 
-Mettre à jour la liste des paquets disponibles
+Mettre à jour la liste des paquets disponibles :
 
 ```
 apt-get update
 ```
 
-Mettre à jour les paquets déjà installé
+Mettre à jour les paquets déjà installés :
 
 ```
 apt-get upgrade
 ```
 
-Installation d'un paquet
+Installer un paquet :
 
 ```
 apt-get install paquet
@@ -232,7 +240,7 @@ apt-get install paquet
 dpkg -i paquet
 ```
 
-Déinstallation d'un paquet
+Supprimer un paquet :
 
 ```
 apt-get remove paquet
@@ -242,7 +250,7 @@ apt-get remove paquet
 dpkg -r paquet
 ```
 
-Pour supprimer les fichiers de configuration.
+Pour supprimer également les fichiers de configuration :
 
 ```
 apt-get --purge remove paquet
@@ -252,99 +260,117 @@ apt-get --purge remove paquet
 dpkg -P paquet
 ```
 
-Afficher la liste des paquets installés
+Afficher la liste des paquets installés :
 
 ```
 dpkg --get-selections | less
 ```
 
-Recherche d'une chaînes de caractères «chaine» dans les paquets connus.
+Rechercher des paquets correspondant à une chaîne de caractères :
 
 ```
 apt-cache search chaîne
 ```
  
- Recherche d'une chaînes de caractères «chaîne» dans le nom d'un paquet.
+Rechercher uniquement dans les noms des paquets :
 
 ```
-apt-cache showpkg chaîne
+apt-cache search --names-only chaîne
 ```
 
-## Opération sur le réseau.
-
-### Carte réseau
-
-**ifconfig** permet de gérer les cartes réseaux.
-
-Afficher les cartes réseaux disponibles.
+Afficher les informations d'un paquet connu :
 
 ```
-ifconfig
+apt show paquet
 ```
 
-### Les routes.
+## Opérations sur le réseau
 
-La commande **route** permet de gérer les routes du noyau.
+### Interfaces réseau
 
-Affiche la table de routage du noyau.
+La commande `ip` permet de consulter et de configurer les interfaces réseau.
+
+Afficher les interfaces réseau et leurs adresses IP :
 
 ```
-route
+ip addr
 ```
 
-### Tester le réseau.
+### Routes
 
-Vérifie 10 fois si un client réseau est disponible.
+La commande `ip route` permet de consulter et de gérer les routes du noyau.
 
-**Note :** attention le client peut être configurer pour ne pas répondre à un ping
+Afficher la table de routage :
+
+```
+ip route
+```
+
+### Tester la connectivité réseau
+
+Envoyer 10 requêtes ping à `google.ca` pour tester la connectivité :
+
+**Remarque :** un hôte peut être configuré pour ne pas répondre aux requêtes ping,
+par exemple si un pare-feu les bloque.
 
 ```
 ping -c 10 google.ca
 ```
 
-Affiche la route d'un paquet pour arriver a une adresse.
+Afficher le chemin suivi par les paquets jusqu'à l'hôte de destination :
 
 ```
 traceroute google.com
 ```
 
-Affiche la correspondance entre *adresse ip* et *mac adresse*
+Afficher les adresses IP et MAC des voisins connus :
 
 ```
-arp -an
+ip neigh
 ```
 
-Affiche les connexions ainsi que les processus correspondants. La commande **netstat** possède beaucoup d'options, voir la documentation en ligne.
+Afficher les connexions TCP et UDP ainsi que les processus associés. Les
+privilèges d'administration sont nécessaires pour voir tous les processus :
 
 ```
-netstat -nap
+sudo ss -tunap
 ```
 
-### Connexion à distance.
+`ifconfig`, `route`, `arp` et `netstat` sont d'anciennes commandes du paquet
+`net-tools`. Sur les systèmes récents, préférer les commandes `ip` et `ss`
+présentées ci-dessus.
 
-**SSH** (Secure shell) est un protocole de communication sécurisé basé sur un système de clés. C'est aussi un programme, qui va permetre d'ouvrir un terminal sur une machine distante.
-Son installion vient avec d'autres programmes pour notamment générer les clés, les copier etc...
+### Connexion à distance
 
-Se connecter sur la machine à l'adresse **domaine.com**
+**SSH** (Secure Shell) est un protocole sécurisé et le nom du programme client
+qui permet d'ouvrir une session sur une machine distante. Les outils associés
+permettent notamment de générer et de copier des clés.
+
+Se connecter à une machine par son nom de domaine :
 
 ```
 ssh login@domaine.com
 ```
-ou 
+
+Ou par son adresse IP :
+
 ```
 ssh login@172.217.13.110
 ```
 
-Génère une paire de clé, privé et public.
-Le programme vous demandera une passphrase pour sécuriser les clés.
-Il vous demandera aussi le nom des clés a générer. Il faut indiquer le chemin complet ainsi que le nom.
-Habituellement on les sauvegarde dans */home/user/.ssh/nom_de_la_cle* .
+Générer une paire de clés SSH (une clé publique et une clé privée) :
 
 ```
 ssh-keygen -t rsa -b 4096
 ```
 
-**Backup** avec **ssh**
+Le programme demande une phrase secrète (passphrase) pour protéger la clé
+privée, ainsi que l'emplacement où enregistrer les clés. Habituellement, elles
+sont stockées dans `~/.ssh/`.
+
+Effectuer une sauvegarde avec `rsync` via SSH. Exécutée depuis la machine de
+destination, cette commande copie le contenu du répertoire distant vers le
+répertoire local :
 
 ```
 rsync -avz -e "ssh -p 22" utilisateur@serveur2:/chemin/source/ /chemin/destination/

@@ -11,36 +11,40 @@
     <body>
         <main>
             <h1>Memo Linux</h1>
-            <p>Date de compilation du document : 2026-11-15 23:27:44.</p>
+            <p>Date de compilation du document : 2026-11-16 00:29:19.</p>
             <p>
                 La dernière version du document peut être trouvée à l'adresse suivante :
                 <a href="https://github.com/FranckBlanchard/Memo-linux" target="_blank" rel="noopener noreferrer">https://github.com/FranckBlanchard/Memo-linux</a>
             </p>
-            <p>Pour obtenir plus d'information sur une commande, se référer aux pages du manuel de celle-ci, ou à l'aide en ligne.</p>
+            <p>Pour obtenir des informations sur une commande, consultez sa page de manuel ou son aide intégrée.</p>
 
-<h2>Pour obtenir de d'information sur une commande</h2>
+<h2>Consulter le manuel d'une commande</h2>
 
 <p><code>man commande</code></p>
 
-<p>Pour la majorité des commandes il est possible d'afficher de l'aide directement depuis la commande en faisant:</p>
+<p>Remplacez <code>commande</code> par le nom de la commande recherchée.</p>
+
+<h2>Afficher l'aide d'une commande</h2>
+
+<p>De nombreuses commandes affichent un résumé de leur utilisation avec l'option <code>--help</code> :</p>
 
 <p><code>commande --help</code></p>
 
-<h2>Opération sur les fichiers.</h2>
+<h2>Opérations sur les fichiers</h2>
 
-<h3>Créer un fichier.</h3>
+<h3>Créer un fichier</h3>
 
 <p><code>touch fichier</code></p>
 
-<h3>Supprimer un fichier.</h3>
+<h3>Supprimer un fichier</h3>
 
 <p><code>rm fichier</code></p>
 
-<h3>Copier un fichier.</h3>
+<h3>Copier un fichier</h3>
 
 <p><code>cp fichier1 fichier2</code></p>
 
-<h3>Afficher un fichier.</h3>
+<h3>Afficher un fichier</h3>
 
 <p><code>cat fichier</code></p>
 
@@ -50,13 +54,13 @@
 
 <p><code>more fichier</code></p>
 
-<h3>Afficher les <em>n</em> premières lignes d'un fichier</h3>
+<h3>Afficher les 10 premières lignes d'un fichier</h3>
 
-<p><code>head -n fichier</code></p>
+<p><code>head -n 10 fichier</code></p>
 
-<h3>Afficher les <em>n</em> dernières lignes d'un fichier</h3>
+<h3>Afficher les 10 dernières lignes d'un fichier</h3>
 
-<p><code>tail -n fichier</code></p>
+<p><code>tail -n 10 fichier</code></p>
 
 <h3>Renommer ou déplacer un fichier</h3>
 
@@ -64,25 +68,25 @@
 
 <h3>Créer un lien symbolique</h3>
 
-<p>Créer un lien symbolique vers un fichier ou un répertoire.</p>
+<p>Créer un lien symbolique vers un fichier ou un répertoire :</p>
 
 <p><code>ln -s cible nom_du_lien</code></p>
 
 <p><code>ln -s /opt/application ~/application</code></p>
 
-<p>Le lien ~/application pointera vers le répertoire /opt/application.</p>
+<p>Le lien <code>~/application</code> pointera vers le répertoire <code>/opt/application</code>.</p>
 
-<h2>Opération sur les répertoires</h2>
+<h2>Opérations sur les répertoires</h2>
 
 <h3>Créer un répertoire</h3>
 
 <p><code>mkdir répertoire</code></p>
 
-<h3>Effacer un répertoire vide</h3>
+<h3>Supprimer un répertoire vide</h3>
 
 <p><code>rmdir répertoire</code></p>
 
-<h3>Effacer un répertoire de façon récurçive</h3>
+<h3>Supprimer un répertoire de façon récursive</h3>
 
 <p><code>rm -r répertoire</code></p>
 
@@ -94,7 +98,7 @@
 
 <p><code>ls -l</code></p>
 
-<h3>Afficher les fichiers du répertoire courant au format long ainsi que les fichiers cachés</h3>
+<h3>Afficher les fichiers du répertoire courant au format long, y compris les fichiers cachés</h3>
 
 <p><code>ls -la</code></p>
 
@@ -104,13 +108,13 @@
 
 <h3>Changer de répertoire</h3>
 
-<p><code>cd repertoire</code></p>
+<p><code>cd répertoire</code></p>
 
-<h3>Se positionner dans le répertoire parent</h3>
+<h3>Accéder au répertoire parent</h3>
 
 <p><code>cd ..</code></p>
 
-<h3>Se positionner à la racine du répertoire de l'utilisateur courant</h3>
+<h3>Accéder au répertoire personnel de l'utilisateur courant</h3>
 
 <p><code>cd ~</code></p>
 
@@ -118,29 +122,29 @@
 
 <p><code>mv source destination</code></p>
 
-<h2>Opération sur les archives.</h2>
+<h2>Opérations sur les archives</h2>
 
 <h3>Créer une archive avec tar</h3>
 
-<p>Créer l'archive compréssé <em>archive.tar.gz</em> en utilisant le programme gzip, de tous les fichiers contenus dans le répertoire <em>documents</em>.</p>
+<p>Depuis le répertoire parent de <code>documents</code>, créez une archive compressée au format gzip contenant ce répertoire :</p>
 
-<p><code>tar -zcvf  archive.tar.gz  /documents</code></p>
+<p><code>tar -czvf archive.tar.gz documents/</code></p>
 
-<h3>Afficher le contenu d'une archive créé avec <em>tar</em>.</h3>
+<h3>Afficher le contenu d'une archive créée avec tar</h3>
 
 <p><code>tar -ztvf archive.tar.gz</code></p>
 
-<h3>Extraire les fichiers d'une archive créé avec <em>tar</em>.</h3>
+<h3>Extraire les fichiers d'une archive créée avec tar</h3>
 
 <p><code>tar -xzvf archive.tar.gz</code></p>
 
-<h2>Opération sur les Utilisateurs</h2>
+<h2>Opérations sur les utilisateurs</h2>
 
-<p>Les commandes suivantes doivent être invoquées avec les droits d'administration.</p>
+<p>Les commandes de cette section nécessitent des privilèges d'administration.</p>
 
 <h3>Ajouter un compte utilisateur</h3>
 
-<p>Il est impératif de consulter le manuel pour les options.</p>
+<p>Consultez le manuel (<code>man useradd</code>) pour connaître les options disponibles.</p>
 
 <p><code>useradd [option] identifiant</code></p>
 
@@ -148,120 +152,140 @@
 
 <p><code>userdel utilisateur</code></p>
 
-<h3>Supprimer un compte utilisateur et son répertoire personel</h3>
+<h3>Supprimer un compte utilisateur et son répertoire personnel</h3>
 
 <p><code>userdel -r utilisateur</code></p>
 
-<h4>Note</h4>
+<p>Attention : l'option <code>-r</code> supprime aussi le répertoire personnel et la boîte
+aux lettres de l'utilisateur. Sauvegardez les données à conserver avant de
+l'utiliser.</p>
 
-<p>Le fichier <em>/etc/group</em> ne sera pas modifié, il faut supprimer les entrées concernant
-l'utilisateur manuellement.</p>
+<p><code>userdel</code> met à jour les fichiers de comptes système concernés, notamment
+<code>/etc/passwd</code>, <code>/etc/shadow</code> et <code>/etc/group</code>. Il n'est normalement pas nécessaire
+de supprimer ces entrées manuellement.</p>
 
 <h3>Modifier un compte utilisateur</h3>
 
-<p>Les options varient en fonction des informations à modifier, consulter le manuel avant son utilisation.</p>
+<p>Les options dépendent des informations à modifier. Consultez le manuel
+(<code>man usermod</code>) avant d'utiliser cette commande.</p>
 
 <p><code>usermod [option] identifiant</code></p>
 
-<h2>Opération sur le système</h2>
+<h2>Opérations sur le système</h2>
 
-<h3>Système <strong>Debian</strong> et dérivé</h3>
+<h3>Debian et les distributions dérivées</h3>
 
-<p>Mettre à jour la liste des paquets disponibles</p>
+<p>Mettre à jour la liste des paquets disponibles :</p>
 
 <p><code>apt-get update</code></p>
 
-<p>Mettre à jour les paquets déjà installé</p>
+<p>Mettre à jour les paquets déjà installés :</p>
 
 <p><code>apt-get upgrade</code></p>
 
-<p>Installation d'un paquet</p>
+<p>Installer un paquet :</p>
 
 <p><code>apt-get install paquet</code></p>
 
 <p><code>dpkg -i paquet</code></p>
 
-<p>Déinstallation d'un paquet</p>
+<p>Supprimer un paquet :</p>
 
 <p><code>apt-get remove paquet</code></p>
 
 <p><code>dpkg -r paquet</code></p>
 
-<p>Pour supprimer les fichiers de configuration.</p>
+<p>Pour supprimer également les fichiers de configuration :</p>
 
 <p><code>apt-get --purge remove paquet</code></p>
 
 <p><code>dpkg -P paquet</code></p>
 
-<p>Afficher la liste des paquets installés</p>
+<p>Afficher la liste des paquets installés :</p>
 
 <p><code>dpkg --get-selections | less</code></p>
 
-<p>Recherche d'une chaînes de caractères «chaine» dans les paquets connus.</p>
+<p>Rechercher des paquets correspondant à une chaîne de caractères :</p>
 
 <p><code>apt-cache search chaîne</code></p>
 
-<p>Recherche d'une chaînes de caractères «chaîne» dans le nom d'un paquet.</p>
+<p>Rechercher uniquement dans les noms des paquets :</p>
 
-<p><code>apt-cache showpkg chaîne</code></p>
+<p><code>apt-cache search --names-only chaîne</code></p>
 
-<h2>Opération sur le réseau.</h2>
+<p>Afficher les informations d'un paquet connu :</p>
 
-<h3>Carte réseau</h3>
+<p><code>apt show paquet</code></p>
 
-<p><strong>ifconfig</strong> permet de gérer les cartes réseaux.</p>
+<h2>Opérations sur le réseau</h2>
 
-<p>Afficher les cartes réseaux disponibles.</p>
+<h3>Interfaces réseau</h3>
 
-<p><code>ifconfig</code></p>
+<p>La commande <code>ip</code> permet de consulter et de configurer les interfaces réseau.</p>
 
-<h3>Les routes.</h3>
+<p>Afficher les interfaces réseau et leurs adresses IP :</p>
 
-<p>La commande <strong>route</strong> permet de gérer les routes du noyau.</p>
+<p><code>ip addr</code></p>
 
-<p>Affiche la table de routage du noyau.</p>
+<h3>Routes</h3>
 
-<p><code>route</code></p>
+<p>La commande <code>ip route</code> permet de consulter et de gérer les routes du noyau.</p>
 
-<h3>Tester le réseau.</h3>
+<p>Afficher la table de routage :</p>
 
-<p>Vérifie 10 fois si un client réseau est disponible.</p>
+<p><code>ip route</code></p>
 
-<p><strong>Note :</strong> attention le client peut être configurer pour ne pas répondre à un ping</p>
+<h3>Tester la connectivité réseau</h3>
+
+<p>Envoyer 10 requêtes ping à <code>google.ca</code> pour tester la connectivité :</p>
+
+<p><strong>Remarque :</strong> un hôte peut être configuré pour ne pas répondre aux requêtes ping,
+par exemple si un pare-feu les bloque.</p>
 
 <p><code>ping -c 10 google.ca</code></p>
 
-<p>Affiche la route d'un paquet pour arriver a une adresse.</p>
+<p>Afficher le chemin suivi par les paquets jusqu'à l'hôte de destination :</p>
 
 <p><code>traceroute google.com</code></p>
 
-<p>Affiche la correspondance entre <em>adresse ip</em> et <em>mac adresse</em></p>
+<p>Afficher les adresses IP et MAC des voisins connus :</p>
 
-<p><code>arp -an</code></p>
+<p><code>ip neigh</code></p>
 
-<p>Affiche les connexions ainsi que les processus correspondants. La commande <strong>netstat</strong> possède beaucoup d'options, voir la documentation en ligne.</p>
+<p>Afficher les connexions TCP et UDP ainsi que les processus associés. Les
+privilèges d'administration sont nécessaires pour voir tous les processus :</p>
 
-<p><code>netstat -nap</code></p>
+<p><code>sudo ss -tunap</code></p>
 
-<h3>Connexion à distance.</h3>
+<p><code>ifconfig</code>, <code>route</code>, <code>arp</code> et <code>netstat</code> sont d'anciennes commandes du paquet
+<code>net-tools</code>. Sur les systèmes récents, préférer les commandes <code>ip</code> et <code>ss</code>
+présentées ci-dessus.</p>
 
-<p><strong>SSH</strong> (Secure shell) est un protocole de communication sécurisé basé sur un système de clés. C'est aussi un programme, qui va permetre d'ouvrir un terminal sur une machine distante.
-Son installion vient avec d'autres programmes pour notamment générer les clés, les copier etc...</p>
+<h3>Connexion à distance</h3>
 
-<p>Se connecter sur la machine à l'adresse <strong>domaine.com</strong></p>
+<p><strong>SSH</strong> (Secure Shell) est un protocole sécurisé et le nom du programme client
+qui permet d'ouvrir une session sur une machine distante. Les outils associés
+permettent notamment de générer et de copier des clés.</p>
 
-<p><code>ssh login@domaine.com</code>
-ou 
-<code>ssh login@172.217.13.110</code></p>
+<p>Se connecter à une machine par son nom de domaine :</p>
 
-<p>Génère une paire de clé, privé et public.
-Le programme vous demandera une passphrase pour sécuriser les clés.
-Il vous demandera aussi le nom des clés a générer. Il faut indiquer le chemin complet ainsi que le nom.
-Habituellement on les sauvegarde dans <em>/home/user/.ssh/nom_de_la_cle</em> .</p>
+<p><code>ssh login@domaine.com</code></p>
+
+<p>Ou par son adresse IP :</p>
+
+<p><code>ssh login@172.217.13.110</code></p>
+
+<p>Générer une paire de clés SSH (une clé publique et une clé privée) :</p>
 
 <p><code>ssh-keygen -t rsa -b 4096</code></p>
 
-<p><strong>Backup</strong> avec <strong>ssh</strong></p>
+<p>Le programme demande une phrase secrète (passphrase) pour protéger la clé
+privée, ainsi que l'emplacement où enregistrer les clés. Habituellement, elles
+sont stockées dans <code>~/.ssh/</code>.</p>
+
+<p>Effectuer une sauvegarde avec <code>rsync</code> via SSH. Exécutée depuis la machine de
+destination, cette commande copie le contenu du répertoire distant vers le
+répertoire local :</p>
 
 <p><code>rsync -avz -e "ssh -p 22" utilisateur@serveur2:/chemin/source/ /chemin/destination/</code></p>
 

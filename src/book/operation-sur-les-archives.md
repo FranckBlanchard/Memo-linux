@@ -1,21 +1,21 @@
 
-## Opération sur les archives.
+## Opérations sur les archives
 
 ### Créer une archive avec tar
 
-Créer l'archive compréssé *archive.tar.gz* en utilisant le programme gzip, de tous les fichiers contenus dans le répertoire *documents*.
+Depuis le répertoire parent de `documents`, créez une archive compressée au format gzip contenant ce répertoire :
 
 ```
-tar -zcvf  archive.tar.gz  /documents
+tar -czvf archive.tar.gz documents/
 ```
 
-### Afficher le contenu d'une archive créé avec *tar*.
+### Afficher le contenu d'une archive créée avec tar
 
 ```
 tar -ztvf archive.tar.gz
 ```
 
-### Extraire les fichiers d'une archive créé avec *tar*.
+### Extraire les fichiers d'une archive créée avec tar
 
 ```
 tar -xzvf archive.tar.gz

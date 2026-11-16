@@ -1,21 +1,21 @@
 
-## Opération sur le système
+## Opérations sur le système
 
-### Système **Debian** et dérivé
+### Debian et les distributions dérivées
 
-Mettre à jour la liste des paquets disponibles
+Mettre à jour la liste des paquets disponibles :
 
 ```
 apt-get update
 ```
 
-Mettre à jour les paquets déjà installé
+Mettre à jour les paquets déjà installés :
 
 ```
 apt-get upgrade
 ```
 
-Installation d'un paquet
+Installer un paquet :
 
 ```
 apt-get install paquet
@@ -25,7 +25,7 @@ apt-get install paquet
 dpkg -i paquet
 ```
 
-Déinstallation d'un paquet
+Supprimer un paquet :
 
 ```
 apt-get remove paquet
@@ -35,7 +35,7 @@ apt-get remove paquet
 dpkg -r paquet
 ```
 
-Pour supprimer les fichiers de configuration.
+Pour supprimer également les fichiers de configuration :
 
 ```
 apt-get --purge remove paquet
@@ -45,20 +45,26 @@ apt-get --purge remove paquet
 dpkg -P paquet
 ```
 
-Afficher la liste des paquets installés
+Afficher la liste des paquets installés :
 
 ```
 dpkg --get-selections | less
 ```
 
-Recherche d'une chaînes de caractères «chaine» dans les paquets connus.
+Rechercher des paquets correspondant à une chaîne de caractères :
 
 ```
 apt-cache search chaîne
 ```
  
- Recherche d'une chaînes de caractères «chaîne» dans le nom d'un paquet.
+Rechercher uniquement dans les noms des paquets :
 
 ```
-apt-cache showpkg chaîne
+apt-cache search --names-only chaîne
+```
+
+Afficher les informations d'un paquet connu :
+
+```
+apt show paquet
 ```

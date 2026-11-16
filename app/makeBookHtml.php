@@ -39,12 +39,11 @@ $twigTemplate = "memo-linux.html.twig";
  * Initialisation de l'autoloarder de composer
  */
 $fileAutoload = __DIR__ . "/../vendor/autoload.php";
-if (file_exists($fileAutoload)) {
-    echo EOL . 'Chargement de l\'autoloader ' . $fileAutoload . EOL;
-    require_once $fileAutoload;
-} else {
-    echo EOL . 'erreur de chargement de ' . $fileAutoload . EOL;
+if (!is_file($fileAutoload)) {
+    throw new RuntimeException("Autoloader Composer introuvable : $fileAutoload");
 }
+echo EOL . 'Chargement de l\'autoloader ' . $fileAutoload . EOL;
+require_once $fileAutoload;
 /**
  * Initialisation du parser markdown
  */
@@ -66,4 +65,12 @@ $html = $twig->render($twigTemplate, array(
         ));
 
 echo EOL . 'Enregistrement de la page ' . $htmlFile . EOL;
-file_put_contents($htmlFile, $html);
+$htmlDirectory = dirname($htmlFile);
+if (!is_dir($htmlDirectory) && !mkdir($htmlDirectory, 0775, true) && !is_dir($htmlDirectory)) {
+    throw new RuntimeException("Impossible de créer le répertoire $htmlDirectory");
+}
+
+$bytesWritten = file_put_contents($htmlFile, $html);
+if ($bytesWritten !== strlen($html)) {
+    throw new RuntimeException("Impossible d'écrire complètement le fichier $htmlFile");
+}
